@@ -1,6 +1,6 @@
 # ngx-onboarding
 
-An onboarding library for Angular applications
+An onboarding library for Angular applications...
 
 ![Onboarding example image](https://raw.githubusercontent.com/rosen-group/ngx-onboarding/master/onboarding-demo.png)
 

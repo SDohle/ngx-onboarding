@@ -24,6 +24,6 @@ jobs:
     - name: Build
       run: npm run package
     - name: Test
-      run: run test ngx-onboarding --watch=false --browsers=ChromeHeadless --code-coverage
+      run: npm run test ngx-onboarding --watch=false --browsers=ChromeHeadless --code-coverage
       env:
         CI: true

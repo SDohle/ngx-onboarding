@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/SDohle/ngx-onboarding/workflows/CI-master/badge.svg)](https://github.com/sdohle/ngx-onboarding/actions)
+
 # ngx-onboarding
 
 An onboarding library for Angular applications

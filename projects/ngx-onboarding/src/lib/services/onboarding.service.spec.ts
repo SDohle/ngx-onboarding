@@ -7,6 +7,100 @@ import { MockLocalStorageSeenSelectorsService } from './local-storage-seen-selec
 import { MockLocalStorageEnabledStatusService } from './local-storage-enabled-status.service.mock';
 import { EnabledStatusBaseService } from './enabled-status-base.service';
 
+const getOnboardingItems: (boolean?) => Array<OnboardingItem> = (ordered: boolean = false) => {
+    return [
+        {
+            'selector': '.css-class-1',
+            'group': 'group 1' + (ordered ? 1 : 0),
+            'position': 'top',
+            'headline': 'headline 1',
+            'details': 'details 1',
+            'descriptions': [
+                {
+                    'language': 'de',
+                    'headline': 'headline 1 de',
+                    'details': 'details 1 de'
+                }
+            ]
+        } as OnboardingItem, {
+            'selector': '.css-class-2',
+            'group': 'group 1' + (ordered ? 1 : 0),
+            'position': 'bottom',
+            'headline': 'headline 2',
+            'details': 'details 2',
+            'descriptions': [
+                {
+                    'language': 'de',
+                    'headline': 'headline 2 de',
+                    'details': 'details 2 de'
+                }
+            ]
+        } as OnboardingItem, {
+            'selector': '.css-class-3',
+            'group': 'group 1' + (ordered ? 2 : 0),
+            'position': 'left',
+            'headline': 'headline 3',
+            'details': 'details 3',
+            'descriptions': [
+                {
+                    'language': 'de',
+                    'headline': 'headline 3 de',
+                    'details': 'details 3 de'
+                }
+            ]
+        } as OnboardingItem, {
+            'selector': '.css-class-4',
+            'group': 'group 1' + (ordered ? 2 : 0),
+            'position': 'right',
+            'headline': 'headline 4',
+            'details': 'details 4',
+            'descriptions': [
+                {
+                    'language': 'de',
+                    'headline': 'headline 4 de',
+                    'details': 'details 4 de'
+                }
+            ]
+        } as OnboardingItem, {
+            'selector': '.css-class-5',
+            'group': 'group 2' + (ordered ? 3 : 0),
+            'position': 'top',
+            'headline': 'headline 5',
+            'details': 'details 5',
+            'descriptions': [
+                {
+                    'language': 'de',
+                    'headline': 'headline 5 de',
+                    'details': 'details 5 de'
+                }
+            ]
+        } as OnboardingItem, {
+            'selector': '.css-class-6',
+            'group': 'group 2' + (ordered ? 3 : 0),
+            'position': 'bottom',
+            'headline': 'headline 6',
+            'details': 'details 6',
+            'descriptions': [
+                {
+                    'language': 'de',
+                    'headline': 'headline 6 de',
+                    'details': 'details 6 de'
+                }
+            ]
+        } as OnboardingItem
+    ];
+};
+
+const getHtmlElements = (count: number) => {
+    const elements = [];
+    for (let i = 0; i < count; i++) {
+        const element = document.createElement('div');
+        element.classList.add('css-class-' + (i + 1));
+        elements.push(element);
+    }
+    return elements;
+};
+
 describe('OnboardingService', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -161,97 +255,4 @@ describe('OnboardingService', () => {
         })();
     });
 
-    const getOnboardingItems: (boolean?) => Array<OnboardingItem> = (ordered: boolean = false) => {
-        return [
-            {
-                'selector': '.css-class-1',
-                'group': 'group 1' + (ordered ? 1 : 0),
-                'position': 'top',
-                'headline': 'headline 1',
-                'details': 'details 1',
-                'descriptions': [
-                    {
-                        'language': 'de',
-                        'headline': 'headline 1 de',
-                        'details': 'details 1 de'
-                    }
-                ]
-            } as OnboardingItem, {
-                'selector': '.css-class-2',
-                'group': 'group 1' + (ordered ? 1 : 0),
-                'position': 'bottom',
-                'headline': 'headline 2',
-                'details': 'details 2',
-                'descriptions': [
-                    {
-                        'language': 'de',
-                        'headline': 'headline 2 de',
-                        'details': 'details 2 de'
-                    }
-                ]
-            } as OnboardingItem, {
-                'selector': '.css-class-3',
-                'group': 'group 1' + (ordered ? 2 : 0),
-                'position': 'left',
-                'headline': 'headline 3',
-                'details': 'details 3',
-                'descriptions': [
-                    {
-                        'language': 'de',
-                        'headline': 'headline 3 de',
-                        'details': 'details 3 de'
-                    }
-                ]
-            } as OnboardingItem, {
-                'selector': '.css-class-4',
-                'group': 'group 1' + (ordered ? 2 : 0),
-                'position': 'right',
-                'headline': 'headline 4',
-                'details': 'details 4',
-                'descriptions': [
-                    {
-                        'language': 'de',
-                        'headline': 'headline 4 de',
-                        'details': 'details 4 de'
-                    }
-                ]
-            } as OnboardingItem, {
-                'selector': '.css-class-5',
-                'group': 'group 2' + (ordered ? 3 : 0),
-                'position': 'top',
-                'headline': 'headline 5',
-                'details': 'details 5',
-                'descriptions': [
-                    {
-                        'language': 'de',
-                        'headline': 'headline 5 de',
-                        'details': 'details 5 de'
-                    }
-                ]
-            } as OnboardingItem, {
-                'selector': '.css-class-6',
-                'group': 'group 2' + (ordered ? 3 : 0),
-                'position': 'bottom',
-                'headline': 'headline 6',
-                'details': 'details 6',
-                'descriptions': [
-                    {
-                        'language': 'de',
-                        'headline': 'headline 6 de',
-                        'details': 'details 6 de'
-                    }
-                ]
-            } as OnboardingItem
-        ];
-    };
-
-    const getHtmlElements = (count: number) => {
-        const elements = [];
-        for (let i = 0; i < count; i++) {
-            const element = document.createElement('div');
-            element.classList.add('css-class-' + (i + 1));
-            elements.push(element);
-        }
-        return elements;
-    };
 });

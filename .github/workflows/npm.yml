@@ -15,7 +15,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm run package
-      - run: cd dist/ngx-onboarding
-      - run: npm publish --dry run
+      - run: npm publish --dry run ./dist/ngx-onboarding
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}

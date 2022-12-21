@@ -15,8 +15,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm run package
-      - run: echo "TODO push package"
+      - run: cd dist/ngx-onboarding
       - run: npm publish --dry run
-        working-directory: ./dist/ngx-onboarding
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}

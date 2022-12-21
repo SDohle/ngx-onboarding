@@ -5,18 +5,7 @@ on:
     types: [created]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: npm ci
-      - run: npm test
-
   publish-npm:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -27,6 +16,7 @@ jobs:
       - run: npm ci
       - run: npm run package
       - run: echo "TODO push package"
-#      - run: npm publish
-#        env:
-#          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - run: npm publish --dry run
+        working-directory: ./dist/ngx-onboarding
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
